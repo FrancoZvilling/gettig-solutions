@@ -1,0 +1,72 @@
+.services-section {
+    padding: 100px 24px;
+    background-color: #122f36;
+    /* Background ligeramente distinto para separar secciones visualmente */
+}
+
+.services-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+}
+
+.service-card {
+    flex: 1 1 300px;
+    max-width: 380px;
+    /* Limitar ancho máximo para que no se estiren demasiado */
+    background: var(--color-primary-bg);
+    padding: 32px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.service-card:hover {
+    background: var(--color-dark-detail);
+    /* Contrast on hover */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-accent);
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    color: var(--color-accent);
+    margin-bottom: 24px;
+    display: inline-block;
+    padding: 12px;
+    background-color: rgba(223, 46, 70, 0.1);
+    border-radius: 12px;
+}
+
+.service-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 12px;
+}
+
+.service-desc {
+    font-size: 1rem;
+    color: var(--color-detail);
+    line-height: 1.6;
+}
+
+/* Hover effect refinements */
+.service-card:hover .service-title {
+    color: white;
+}
+
+.service-card:hover .service-desc {
+    color: rgba(255, 255, 255, 0.8);
+}

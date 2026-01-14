@@ -1,0 +1,68 @@
+:root {
+  --color-primary-bg: #163A43;
+  /* Azul petróleo oscuro */
+  --color-secondary: #F9FAFA;
+  /* Blanco casi puro */
+  --color-accent: #DF2E46;
+  /* Rojo corporativo */
+  --color-detail: #8B9CA1;
+  /* Gris azulado claro */
+  --color-dark-detail: #4E4E59;
+  /* Gris azulado oscuro */
+  --color-white: #FFFFFF;
+  --max-width: 1200px;
+
+  --font-main: 'Outfit', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-primary-bg);
+  color: var(--color-secondary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Scrollbar personalizada dark mode */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-detail);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-detail);
+}

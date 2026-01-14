@@ -1,0 +1,130 @@
+.contact-section {
+    padding: 100px 24px;
+    background-color: var(--color-primary-bg);
+}
+
+.contact-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.contact-desc {
+    font-size: 1.15rem;
+    color: var(--color-detail);
+    margin-bottom: 40px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.detail-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-item h4 {
+    font-size: 0.9rem;
+    color: var(--color-detail);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.detail-item a,
+.detail-item p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-secondary);
+}
+
+.contact-form {
+    background: var(--color-secondary);
+    /* Mantener form blanco/claro para contraste o hacerlo oscuro? User wants dark mode feel. Let's try dark card styled */
+    background: #1c4a56;
+    /* slightly lighter than bg */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--color-secondary);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--color-accent);
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #c0253a;
+    box-shadow: 0 4px 12px rgba(223, 46, 70, 0.4);
+}
+
+@media screen and (max-width: 968px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
