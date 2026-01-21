@@ -43,7 +43,17 @@ const Contact = () => {
 
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
-                        <input type="email" id="email" placeholder="tu@email.com" required />
+                        <input type="email" id="email" placeholder="Tu correo electrónico" required />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="phone">Teléfono</label>
+                        <input type="tel" id="phone" placeholder="Tu número de contacto" required />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="subject">Asunto</label>
+                        <input type="text" id="subject" placeholder="Motivo de consulta" required />
                     </div>
 
                     <div className="form-group">
