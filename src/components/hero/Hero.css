@@ -1,6 +1,5 @@
 .hero-section {
     padding: 140px 24px 80px;
-    /* More top padding for fixed navbar */
     background-color: var(--color-primary-bg);
     min-height: 100vh;
     display: flex;
@@ -11,14 +10,20 @@
 }
 
 .hero-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    display: flex; /* Cambiado de grid a flex */
+    justify-content: center;
     max-width: var(--max-width);
     width: 100%;
-    align-items: center;
     position: relative;
     z-index: 2;
+}
+
+.hero-content {
+    text-align: center; /* Centrar texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar items flex (CTAs) */
+    max-width: 900px; /* Limitar ancho para que no se extienda demasiado al no tener imagen */
 }
 
 .hero-subtitle {
@@ -32,11 +37,11 @@
 }
 
 .hero-title {
-    font-size: 4rem;
+    font-size: 4.5rem; /* Un poco más grande para impactar más al estar solo */
     line-height: 1.1;
     color: var(--color-secondary);
     font-weight: 700;
-    margin-bottom: 24px;
+    margin-bottom: 40px;
 }
 
 .hero-title .highlight {
@@ -57,16 +62,12 @@
     border-radius: 4px;
 }
 
-.hero-description {
-    font-size: 1.25rem;
-    color: var(--color-detail);
-    margin-bottom: 40px;
-    max-width: 500px;
-}
+/* Descripción eliminada, estilo no necesario pero se podría dejar por compatibilidad futura si quisiera volver */
 
 .hero-cta {
     display: flex;
     gap: 20px;
+    justify-content: center;
 }
 
 .btn-primary {
@@ -102,25 +103,7 @@
     color: var(--color-primary-bg);
 }
 
-.hero-image-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-.hero-image {
-    width: 100%;
-    height: auto;
-    max-height: 550px;
-    object-fit: cover;
-    /* o contain, dependiendo de la imagen real */
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-    position: relative;
-    z-index: 10;
-    /* Optional: cool border or effect */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
+/* Estilos de imagen eliminados o irrelevantes ahora, pero mantenemos decoración */
 
 .hero-bg-decoration {
     position: absolute;
@@ -128,33 +111,25 @@
     right: -10%;
     width: 70%;
     opacity: 0.1;
-    /* Muy sutil */
     pointer-events: none;
     z-index: 1;
     mix-blend-mode: overlay;
 }
 
 @media screen and (max-width: 968px) {
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .hero-description {
-        margin: 0 auto 40px;
+    .hero-title {
+        font-size: 2.8rem;
     }
 
     .hero-cta {
+        flex-direction: column; /* Apilar botones en mobile si es necesario, o mantener row */
+        width: 100%;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%; /* Botones full width en mobile para mejor tacto */
         justify-content: center;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-image {
-        max-height: 350px;
-        margin-top: 40px;
     }
 
     .hero-bg-decoration {

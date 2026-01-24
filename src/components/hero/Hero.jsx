@@ -6,14 +6,12 @@ const Hero = () => {
         <section id="hero" className="hero-section">
             <div className="hero-container">
                 <div className="hero-content">
-                    <span className="hero-subtitle">Logística & Digital Chain</span>
+                    <span className="hero-subtitle">Logística & Digital Supply Chain</span>
                     <h1 className="hero-title">
                         Transformamos tus procesos, <br />
                         <span className="highlight">potenciamos tu negocio.</span>
                     </h1>
-                    <p className="hero-description">
-                        Acompañamos a empresas en la mejora y transformación de su logística. Diagnóstico, tecnología y gestión orientada a resultados reales.
-                    </p>
+
                     <div className="hero-cta">
                         <a href="#contact" className="btn-primary">
                             Hablemos
@@ -23,9 +21,6 @@ const Hero = () => {
                             Nuestra Solución
                         </a>
                     </div>
-                </div>
-                <div className="hero-image-container">
-                    <img src="/hero.png" alt="Logística Digital" className="hero-image" />
                 </div>
             </div>
 

@@ -1,5 +1,39 @@
+import { useState } from 'react';
 import './Services.css';
 import { ClipboardList, Settings, Truck, BarChart3, GraduationCap } from 'lucide-react';
+
+const FlipCard = ({ icon, title, desc }) => {
+    const [isFlipped, setIsFlipped] = useState(false);
+
+    const handleFlip = () => {
+        setIsFlipped(!isFlipped);
+    };
+
+    return (
+        <div
+            className={`service-card flip-card ${isFlipped ? 'flipped' : ''}`}
+            onClick={handleFlip}
+            onMouseLeave={() => setIsFlipped(false)}
+        >
+            <div className="flip-card-inner">
+                {/* Frente */}
+                <div className="flip-card-front">
+                    <div className="service-icon">
+                        {icon}
+                    </div>
+                    <h3 className="service-title">{title}</h3>
+                    <span className="tap-hint">Ver detalle +</span>
+                </div>
+
+                {/* Dorso */}
+                <div className="flip-card-back">
+                    <h3 className="service-title">{title}</h3>
+                    <p className="service-desc">{desc}</p>
+                </div>
+            </div>
+        </div>
+    );
+};
 
 const Services = () => {
     const services = [
@@ -15,7 +49,7 @@ const Services = () => {
         },
         {
             icon: <Truck size={32} />,
-            title: "Logística 4.0",
+            title: "Digital Supply Chain",
             desc: "Digitalización de operaciones. Implementación de tecnologías para la trazabilidad."
         },
         {
@@ -40,13 +74,12 @@ const Services = () => {
 
                 <div className="services-grid">
                     {services.map((service, index) => (
-                        <div key={index} className="service-card">
-                            <div className="service-icon">
-                                {service.icon}
-                            </div>
-                            <h3 className="service-title">{service.title}</h3>
-                            <p className="service-desc">{service.desc}</p>
-                        </div>
+                        <FlipCard
+                            key={index}
+                            icon={service.icon}
+                            title={service.title}
+                            desc={service.desc}
+                        />
                     ))}
                 </div>
             </div>

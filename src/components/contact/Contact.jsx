@@ -37,13 +37,18 @@ const Contact = () => {
 
                 <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
                     <div className="form-group">
-                        <label htmlFor="name">Nombre</label>
-                        <input type="text" id="name" placeholder="Tu nombre" required />
+                        <label htmlFor="name">Nombre y Apellido</label>
+                        <input type="text" id="name" placeholder="Tu nombre completo" required />
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
                         <input type="email" id="email" placeholder="Tu correo electrónico" required />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="company">Empresa (Opcional)</label>
+                        <input type="text" id="company" placeholder="Nombre de tu empresa" />
                     </div>
 
                     <div className="form-group">

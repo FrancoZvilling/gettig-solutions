@@ -1,7 +1,6 @@
 .services-section {
     padding: 100px 24px;
     background-color: #122f36;
-    /* Background ligeramente distinto para separar secciones visualmente */
 }
 
 .services-container {
@@ -19,34 +18,82 @@
     flex-wrap: wrap;
     gap: 32px;
     justify-content: center;
+    perspective: 1000px;
+    /* Para efecto 3D */
 }
 
+/* Service Card ahora es Flip Card Container */
 .service-card {
     flex: 1 1 300px;
-    max-width: 380px;
-    /* Limitar ancho máximo para que no se estiren demasiado */
-    background: var(--color-primary-bg);
-    padding: 32px;
+    max-width: 320px;
+    height: 350px;
+    /* Altura fija para flip */
+    background: transparent;
+    padding: 0;
+    /* Padding movido a inner elements */
+    border: none;
     border-radius: 16px;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* FLIP CARD INNER */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.service-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* FRONT & BACK */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.service-card:hover {
-    background: var(--color-dark-detail);
-    /* Contrast on hover */
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+/* FRONT */
+.flip-card-front {
+    background: var(--color-primary-bg);
+    /* O un color ligeramente diferente */
+    background: linear-gradient(145deg, rgba(18, 47, 54, 1) 0%, rgba(15, 35, 40, 1) 100%);
+}
+
+.flip-card-front:hover {
     border-color: var(--color-accent);
-    transform: translateY(-5px);
 }
 
 .service-icon {
     color: var(--color-accent);
     margin-bottom: 24px;
     display: inline-block;
-    padding: 12px;
+    padding: 16px;
     background-color: rgba(223, 46, 70, 0.1);
-    border-radius: 12px;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+    background-color: var(--color-accent);
+    color: white;
 }
 
 .service-title {
@@ -56,17 +103,33 @@
     margin-bottom: 12px;
 }
 
+.tap-hint {
+    margin-top: auto;
+    font-size: 0.8rem;
+    color: var(--color-detail);
+    opacity: 0.6;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+/* BACK */
+.flip-card-back {
+    background-color: var(--color-accent);
+    /* Rojo corporativo al girar, igual que WhoWeAre */
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.flip-card-back .service-title {
+    color: white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
 .service-desc {
     font-size: 1rem;
-    color: var(--color-detail);
     line-height: 1.6;
-}
-
-/* Hover effect refinements */
-.service-card:hover .service-title {
-    color: white;
-}
-
-.service-card:hover .service-desc {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
 }

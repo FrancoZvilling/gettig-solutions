@@ -1,5 +1,39 @@
+import { useState } from 'react';
 import './WhoWeAre.css';
-import { Target, TrendingUp, Users } from 'lucide-react';
+import { Target, TrendingUp, ShieldCheck } from 'lucide-react';
+
+const FlipCard = ({ title, icon: Icon, text }) => {
+    const [isFlipped, setIsFlipped] = useState(false);
+
+    const handleFlip = () => {
+        setIsFlipped(!isFlipped);
+    };
+
+    return (
+        <div
+            className={`flip-card ${isFlipped ? 'flipped' : ''}`}
+            onClick={handleFlip}
+            onMouseLeave={() => setIsFlipped(false)} // Opcional: volver al frente al sacar el mouse
+        >
+            <div className="flip-card-inner">
+                {/* Frente de la tarjeta */}
+                <div className="flip-card-front">
+                    <div className="icon-box">
+                        <Icon size={40} color="white" />
+                    </div>
+                    <h3>{title}</h3>
+                    <span className="tap-hint">Ver más +</span>
+                </div>
+
+                {/* Dorso de la tarjeta */}
+                <div className="flip-card-back">
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                </div>
+            </div>
+        </div>
+    );
+};
 
 const WhoWeAre = () => {
     return (
@@ -7,36 +41,28 @@ const WhoWeAre = () => {
             <div className="about-container">
                 <div className="about-header">
                     <span className="section-tag">¿Quiénes Somos?</span>
-                    <h2 className="section-title">Expertos en Logística <br /> y Digital Chain</h2>
+                    <h2 className="section-title">EXPERTOS EN LOGÍSTICA <br /> & DIGITAL SUPPLY CHAIN</h2>
                     <p className="about-lead">
-                        Acompañamos a empresas en la mejora y transformación de sus procesos logísticos, combinando diagnóstico, tecnología y gestión.
+                        Transformamos la complejidad de la cadena de suministro en ventajas competitivas reales mediante disrupción tecnológica y experiencia operativa.
                     </p>
                 </div>
 
                 <div className="features-grid">
-                    <div className="feature-card">
-                        <div className="icon-box">
-                            <TrendingUp size={32} color="var(--color-accent)" />
-                        </div>
-                        <h3>Enfoque Práctico</h3>
-                        <p>Nuestro enfoque es práctico, escalable y orientado a resultados reales. Sin vueltas.</p>
-                    </div>
-
-                    <div className="feature-card">
-                        <div className="icon-box">
-                            <Target size={32} color="var(--color-accent)" />
-                        </div>
-                        <h3>Visión Estratégica</h3>
-                        <p>La logística dejó de ser solo operativa. Hoy es estratégica. Te ayudamos a verla así.</p>
-                    </div>
-
-                    <div className="feature-card">
-                        <div className="icon-box">
-                            <Users size={32} color="var(--color-accent)" />
-                        </div>
-                        <h3>Soluciones Adaptables</h3>
-                        <p>Diseñamos soluciones a la medida de tu empresa, alineadas a tu tamaño y realidad.</p>
-                    </div>
+                    <FlipCard
+                        title="MISIÓN"
+                        icon={TrendingUp}
+                        text="Transformar la gestión logística mediante soluciones digitales innovadoras que optimicen procesos y potencien la rentabilidad de nuestros clientes."
+                    />
+                    <FlipCard
+                        title="VISIÓN"
+                        icon={Target}
+                        text="Ser referentes indiscutidos en la integración de tecnología y logística en la región, impulsando la evolución hacia cadenas de suministro inteligentes."
+                    />
+                    <FlipCard
+                        title="OBJETIVOS"
+                        icon={ShieldCheck}
+                        text="Maximizar la eficiencia operativa, reducir costos ocultos, implementar tecnologías escalables y garantizar decisiones basadas en datos precisos."
+                    />
                 </div>
             </div>
         </section>

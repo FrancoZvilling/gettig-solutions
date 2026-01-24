@@ -129,4 +129,8 @@
     .benefits-list {
         align-items: center;
     }
+
+    .solutions-visual {
+        display: none;
+    }
 }
